@@ -1,14 +1,23 @@
-import { useState } from 'react'
 import './App.css'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Navbar } from "./components/navbar"
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <h1 className="text-4xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <nav>
+      <Navbar />
+    </nav>
+    
+    // <Router>
+      
+    //   <Routes>
+    //     <Route path="/" />
+    //     <Route path="/cart" />
+
+    //   </Routes>
+    // </Router>
+    
+  );
 }
 
 export default App
