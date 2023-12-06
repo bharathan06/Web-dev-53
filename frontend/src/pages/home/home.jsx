@@ -1,11 +1,14 @@
-import React from 'react'
-
+import React from 'react';
+import Hero from 'frontend/src/components/hero';
+ 
 export const Home = () => {
   return (
     <div>
-      <h1>Welcome to home page</h1>
+      <h1>hey</h1>
+      <Hero />
     </div>
   )
 }
+
 
 
