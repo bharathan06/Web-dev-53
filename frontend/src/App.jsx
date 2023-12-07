@@ -1,14 +1,27 @@
-import { useState } from 'react'
+import React from 'react'
+import { Header, Product_sec, Footer } from './containers';
+import { Navbar, Navigate, Product } from './components';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    return (
+        <>
+            <div className='App'>
+                <div>
+                    <Header />
+                    <Navbar />
+                    <Navigate />
+                </div>
+                <div>
 
-  return (
-    <h1 className="text-4xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+                    <Product_sec >
+                        <Product />
+                    </Product_sec>
+                </div>
+            </div>
+            <Footer />
+        </>
+    )
 }
 
 export default App
