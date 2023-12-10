@@ -5,6 +5,8 @@ import { Home } from "./pages/home/home"
 import { About } from "./pages/about/about"
 import { Footer } from "./components/footer/footer";
 import { Cart } from './pages/cart/cart';
+import {Profile} from "./pages/profile/profile";
+
 
 
 function App() {
@@ -18,8 +20,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/cart" element={<Cart/>}/>
-
-
+      <Route path="/profile" element={<Profile/>}/>
+    
       </Routes>
       <Footer />
     </Router>
