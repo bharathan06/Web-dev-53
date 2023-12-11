@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from 'frontend/src/components/hero';
+import Hero from '../../components/hero/hero';
  
 export const Home = () => {
   return (
