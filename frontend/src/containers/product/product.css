@@ -1,0 +1,15 @@
+.f1{
+    display: flex;
+    justify-content: space-between;
+}
+.f2{
+    display: flex;
+    justify-content: space-between;    
+}
+.container1{
+    margin: 50px;
+    border: 2.5px;
+    border-radius: 8px;
+    border-color: rgb(61, 59, 59);
+    border-style: solid;
+}
