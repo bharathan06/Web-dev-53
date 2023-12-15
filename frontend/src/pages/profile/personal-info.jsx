@@ -1,62 +1,91 @@
 import React, { useState } from 'react';
 
- const  PersonalInfoPage = () => {
-  const [userInfo, setUserInfo] = useState({
-    firstName: 'Ram',
-    lastName: 'Krishnan',
-    email: ' ramkrishnan@xmail.com',
+export const PersonalInfo = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    age: '',
+    gender: '',
+    email: '',
+    phoneNumber: '',
   });
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', userInfo);
-  };
 
-
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setUserInfo((prevInfo) => ({
-      ...prevInfo,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    console.log('Form submitted with data:', formData);
+  };
+
   return (
-    <div>
-      <h1>Personal Information</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          First Name:
+    <div className="container mx-auto mt-8">
+      <h1 className="text-2xl font-bold mb-4">Personal Information</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-600">Username</label>
           <input
             type="text"
-            name="firstName"
-            value={userInfo.firstName}
-            onChange={handleInputChange}
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            className="form-input mt-1 block w-full rounded-md border-gray-300"
           />
-        </label>
-        <br />
-        <label>
-          Last Name:
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-600">Age</label>
           <input
             type="text"
-            name="lastName"
-            value={userInfo.lastName}
-            onChange={handleInputChange}
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            className="form-input mt-1 block w-full rounded-md border-gray-300"
           />
-        </label>
-        <br />
-        <label>
-          Email:
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-600">Gender</label>
+          <input
+            type="text"
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            className="form-input mt-1 block w-full rounded-md border-gray-300"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-600">Email</label>
           <input
             type="email"
             name="email"
-            value={userInfo.email}
-            onChange={handleInputChange}
+            value={formData.email}
+            onChange={handleChange}
+            className="form-input mt-1 block w-full rounded-md border-gray-300"
           />
-        </label>
-        <br />
-        <button type="submit">Save Changes</button>
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-semibold text-gray-600">Phone Number</label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            className="form-input mt-1 block w-full rounded-md border-gray-300"
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Save
+        </button>
       </form>
     </div>
   );
 };
-export default PersonalInfoPage;
+
+

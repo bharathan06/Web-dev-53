@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 
+
+
 export const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
@@ -15,24 +17,30 @@ export const Navbar = () => {
             <li><Link to="/about">About us</Link></li>
             <li><Link to="/cart">My Cart</Link></li>
             <li><Link to="/profile">My Profile</Link></li>
+            <li><Link to="/logout">Logout</Link></li>
           </ul>
         </div>
+     
       </div>
       <div className="navbar-center">
         <Link to="/" className="btn btn-ghost text-xl">OrvaOils</Link>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-        </button>
-        <button className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <span className="badge badge-xs badge-primary indicator-item"></span>
-            <ShoppingCart size={25}/>
-          </div>
-        </button>
-        <Link to="/login" className="btn btn-ghost btn-circle">Login</Link>
-      </div>
+  <button className="btn btn-ghost btn-circle">
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  </button>
+  <button className="btn btn-ghost btn-circle">
+    <div className="indicator">
+      <span className="badge badge-xs badge-primary indicator-item"></span>
+      <ShoppingCart size={25}/>
+    </div>
+  </button>
+  <button>
+  <Link to="/Login" className="btn btn-ghost btn-circle">Login</Link>
+  </button>
+</div>
     </div>
   );
-}
+};

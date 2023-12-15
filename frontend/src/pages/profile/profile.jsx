@@ -2,32 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsPerson } from 'react-icons/bs';
 import { FaAddressCard, FaOilCan } from 'react-icons/fa';
-import { MdLogout, MdOutlineFavorite } from 'react-icons/md';
+import { MdOutlineFavorite } from 'react-icons/md';
+
 export const Profile = () => {
-    return (
-        <nav>
-          <ul className=' flex flex-col p-4 text-gray-900'>
-            <li className='text-xl py-4 flex'>
-              <BsPerson size={20} className='mr-4 text-white bg-black rounded-full' />
-              <Link to='/personal-info'>Personal Information</Link>
-            </li>
-            <li className='text-xl py-4 flex'>
-              <MdOutlineFavorite size={20} className='mr-4 text-white bg-black rounded-full' />
-              <Link to='/WishlistPage'>Wishlist</Link>
-            </li>
-            <li className='text-xl py-4 flex'>
-              <FaAddressCard size={20} className='mr-4 text-white bg-black rounded-full' />
-              <Link to='/addresses'>My Addresses</Link>
-            </li>
-            <li className='text-xl py-4 flex'>
-              <FaOilCan size={20} className='mr-4 text-white bg-black rounded-full' />
-              < Link to='/OrdersPage'>My Orders</Link>
-            </li>
-            <li className='text-xl py-4 flex'>
-            <MdLogout size={20} className='mr-4 text-white bg-black rounded-full' />
-            <Link to='/logout'>LOGOUT</Link>
-            </li>
-          </ul>
-        </nav>
-    );
-      };
+  return (
+    <div className="flex justify-center items-center h-full">
+      <div className="card-container">
+        <ProfileItem icon={<BsPerson size={20} />} to='/personal-info.jsx'>
+          Personal Information
+        </ProfileItem>
+        <ProfileItem icon={<MdOutlineFavorite size={20} />} to='/wishlist.jsx'>
+          Wishlist
+        </ProfileItem>
+        <ProfileItem icon={<FaAddressCard size={20} />} to='/addresses.jsx'>
+          My Addresses
+        </ProfileItem>
+        <ProfileItem icon={<FaOilCan size={20} />} to='/orders.jsx'>
+          My Orders
+        </ProfileItem>
+      </div>
+    </div>
+  );
+};
+
+const ProfileItem = ({ icon, to, children }) => {
+  return (
+    <div className="card p-6 m-4 text-center">
+      <div className='mb-4 text-white bg-black rounded-full inline-flex items-center justify-center p-2'>
+        {icon}
+      </div>
+      <Link to={to} className="text-xl">{children}</Link>
+    </div>
+  );
+};

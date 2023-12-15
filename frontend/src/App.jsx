@@ -6,6 +6,8 @@ import { About } from "./pages/about/about"
 import { Footer } from "./components/footer/footer";
 import { Cart } from './pages/cart/cart';
 import {Profile} from "./pages/profile/profile";
+import {Logout} from "./pages/logout/logout";
+
 
 
 
@@ -17,10 +19,14 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+       
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/logout" element={<Logout/>}/>
+    
+     
     
       </Routes>
       <Footer />
