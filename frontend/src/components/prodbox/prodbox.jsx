@@ -5,7 +5,7 @@ export const ProductBox = ({ product }) => {
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
         <img src={product.image} alt={product.name} />
-      </figure>
+      </figure> 
       <div className="card-body">
         <h2 className="card-title">{product.name}</h2>
         <p>{product.description}</p>

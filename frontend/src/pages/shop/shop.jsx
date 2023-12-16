@@ -1,15 +1,31 @@
-import React from 'react';
-import { PRODUCTS } from '../../products';
+import React, { useState, useEffect } from 'react';
 import { Product } from './product';
 import './shop.css';
 
 const Shop = () => {
-    return (
-        <div className="products">
-            {PRODUCTS.map((product) =>
-                <Product data={product} />)}
-        </div>
-    );
-}
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/latest-products/');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <div className="products">
+      {products.map((product) => (
+        <Product key={product.id} data={product} />
+      ))}
+    </div>
+  );
+};
 
 export { Shop };

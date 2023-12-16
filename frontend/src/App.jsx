@@ -13,9 +13,10 @@ function App() {
   return (
 
     <div className="App">
-      <ShopContextProvider>
+      
         <Router>
           <Navbar />
+          <ShopContextProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -24,9 +25,10 @@ function App() {
 
 
           </Routes>
+          </ShopContextProvider>
           <Footer />
         </Router>
-      </ShopContextProvider>
+      
     </div>
   );
 }
