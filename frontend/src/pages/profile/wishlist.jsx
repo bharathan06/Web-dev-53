@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const WishlistPage = () => {
+export const Wishlist = () => {
   const wishlistItems = [
     { id: 1, name: 'Groundnut Oil', price: 'Rs 350.00' },
     { id: 2, name: 'Cashew', price: 'Rs 850.00' },
@@ -8,8 +8,20 @@ export const WishlistPage = () => {
   ];
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">My Wishlist</h1>
+    <div style={{ textAlign: 'center' }}>
+      <h1
+        style={{
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          marginBottom: '1rem',
+          background: 'yellow',
+          display: 'inline-block',
+          padding: '0.5rem 1rem',
+          borderRadius: '5px',
+        }}
+      >
+        My Wishlist
+      </h1>
       {wishlistItems.length > 0 ? (
         <ul>
           {wishlistItems.map((item) => (

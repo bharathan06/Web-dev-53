@@ -19,14 +19,13 @@ export const PersonalInfo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     console.log('Form submitted with data:', formData);
   };
 
   return (
     <div className="container mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4">Personal Information</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="text-2xl font-bold mb-4 text-center">Personal Information</h1>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="mb-4">
           <label className="block text-sm font-semibold text-gray-600">Username</label>
           <input
@@ -34,7 +33,7 @@ export const PersonalInfo = () => {
             name="username"
             value={formData.username}
             onChange={handleChange}
-            className="form-input mt-1 block w-full rounded-md border-gray-300"
+            className="form-input mt-1 w-full rounded-md border-gray-300"
           />
         </div>
         <div className="mb-4">
@@ -44,7 +43,7 @@ export const PersonalInfo = () => {
             name="age"
             value={formData.age}
             onChange={handleChange}
-            className="form-input mt-1 block w-full rounded-md border-gray-300"
+            className="form-input mt-1 w-full rounded-md border-gray-300"
           />
         </div>
         <div className="mb-4">
@@ -54,7 +53,7 @@ export const PersonalInfo = () => {
             name="gender"
             value={formData.gender}
             onChange={handleChange}
-            className="form-input mt-1 block w-full rounded-md border-gray-300"
+            className="form-input mt-1 w-full rounded-md border-gray-300"
           />
         </div>
         <div className="mb-4">
@@ -64,7 +63,7 @@ export const PersonalInfo = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="form-input mt-1 block w-full rounded-md border-gray-300"
+            className="form-input mt-1 w-full rounded-md border-gray-300"
           />
         </div>
         <div className="mb-4">
@@ -74,12 +73,12 @@ export const PersonalInfo = () => {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
-            className="form-input mt-1 block w-full rounded-md border-gray-300"
+            className="form-input mt-1 w-full rounded-md border-gray-300"
           />
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full"
         >
           Save
         </button>
@@ -87,5 +86,3 @@ export const PersonalInfo = () => {
     </div>
   );
 };
-
-

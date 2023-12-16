@@ -3,81 +3,117 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const data = { name: "", email: "", password: "" };
+  const data = { username: "", password: "" };
   const [user, setUser] = useState(data);
   const history = useNavigate();
 
-  const HandleChange = (e) => {
+  const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const Handlesubmit = (e) => {
-    let getuserArr = JSON.parse(localStorage.getItem("users"));
-
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (user.email === "") {
-      alert("Please enter a Email");
-    } else if (user.email.indexOf("@") <= 0) {
-      alert(" @ Invalid position");
-    } else if (
-      user.email.charAt(user.email.length - 4) != "." &&
-      user.email.charAt(user.email.length - 3 != ".")
-    ) {
-      alert(" . invalid position");
-    } else if (user.password === "") {
-      alert("please enter password");
-    } else if (user.password.length <= 5 || user.password.length > 20) {
-      alert("password length must be between 5 and 20");
-    } else {
-      if (getuserArr && getuserArr.length) {
-        const userLogin = getuserArr.filter((el, i) => {
-          return el.email === user.email && el.password === user.password;
-        });
-        if (userLogin.length === 0) {
-          alert("invalid details");
-        } else {
-          console.log("user login succesfully");
-          history("/");
-        }
-      }
-    }
+    history("/");
   };
+
   return (
-    <div className="sigin-flex">
-      <div className="sigin-left">
-        <form onSubmit={Handlesubmit}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "90vh", 
+      }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          width: "300px",
+          textAlign: "center",
+          marginTop: "-20px", 
+        }}
+      >
+        <div style={{ marginBottom: "15px" }}>
+        <label htmlFor="username" style={{ fontWeight: 'bold', fontSize: '18px' }}>
+            Username
+        </label>
+
           <input
-            autoComplete="off"
             type="text"
-            placeholder="Write your Email"
-            onChange={HandleChange}
-            name="email"
-            value={user.email}
+            id="username"
+            name="username"
+            value={user.username}
+            onChange={handleChange}
+            placeholder="Enter your username"
+            style={{
+              width: "100%",
+              padding: "8px",
+              boxSizing: "border-box",
+              marginBottom: "10px",
+              
+
+            }}
           />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+        <label htmlFor="password" style={{ fontWeight: 'bold', fontSize: '18px' }}>
+            Password
+        </label>
           <input
-            autoComplete="off"
             type="password"
-            placeholder="Write your Password"
-            onChange={HandleChange}
+            id="password"
             name="password"
             value={user.password}
+            onChange={handleChange}
+            placeholder="Enter your password"
+            style={{
+              width: "100%",
+              padding: "8px",
+              boxSizing: "border-box",
+              marginBottom: "10px",
+            }}
           />
-          <button className="form-btn" type="submit">
-            Login in
-          </button>
-          <p>
-            Do you have an Account?{" "}
-            <Link to="/signup" style={{ textDecoration: "none" }}>
-              <span>Sign up</span>
-            </Link>
-          </p>
-        </form>
-      </div>
-
-      <div className="sigin-img-left">
-        <img src={siginImg} alt="" />
-      </div>
+        </div>
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "10px",
+            boxSizing: "border-box",
+            background: "#4CAF50",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
+          Login
+        </button>
+        <p style={{ marginBottom: "10px", marginTop: "10px" }}>
+          <Link to="/forgot-password" style={{ textDecoration: "none" }}>
+            <button
+              style={{
+                width: "100%",
+                padding: "10px",
+                boxSizing: "border-box",
+                background: "#f44336",
+                color: "white",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Forgot Password?
+            </button>
+          </Link>
+        </p>
+        <p>
+          Don't have an account?{" "}
+          <Link to="/signup" style={{ textDecoration: "none" }}>
+            <span>Sign up</span>
+          </Link>
+        </p>
+      </form>
     </div>
   );
 };
-

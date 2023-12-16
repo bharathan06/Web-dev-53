@@ -8,17 +8,17 @@ export const Profile = () => {
   return (
     <div className="flex justify-center items-center h-full">
       <div className="card-container">
-        <ProfileItem icon={<BsPerson size={20} />} to='/personal-info.jsx'>
-          Personal Information
+        <ProfileItem icon={<BsPerson size={20} />} to='/personal-info'>
+       <li><Link to="/personal-info">Personal Information</Link></li>
         </ProfileItem>
-        <ProfileItem icon={<MdOutlineFavorite size={20} />} to='/wishlist.jsx'>
-          Wishlist
+        <ProfileItem icon={<MdOutlineFavorite size={20} />} to='/wishlist'>
+          <li><Link to="/wishlist">Wishlist</Link></li>
         </ProfileItem>
         <ProfileItem icon={<FaAddressCard size={20} />} to='/addresses.jsx'>
-          My Addresses
+          <li><Link to="/addresses">My Addresses</Link></li>
         </ProfileItem>
-        <ProfileItem icon={<FaOilCan size={20} />} to='/orders.jsx'>
-          My Orders
+        <ProfileItem icon={<FaOilCan size={20} />} to='/orders'>
+        <li><Link to="/orders">My Orders</Link></li>
         </ProfileItem>
       </div>
     </div>
