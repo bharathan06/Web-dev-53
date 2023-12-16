@@ -11,7 +11,7 @@ export const Home = () => {
       try {
         const response = await axios.get('/api/v1/latest-products/');
         console.log('Fetched Data:', response.data);
-        
+
         if (Array.isArray(response.data)) {
           setLatestProducts(response.data);
         } else {
@@ -21,21 +21,21 @@ export const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     fetchData();
   }, []);
-  
+
   return (
     <div>
       {/* Hero section */}
       <div className="hero min-h-screen" style={{
         backgroundImage: `url(${orvaImage})`,
-        backgroundSize: '400px 400px', 
+        backgroundSize: '400px 400px',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        
-        }}>        
-      <div className=""></div>
+
+      }}>
+        <div className=""></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             {/* <button className="btn btn-primary bg-yellow-500 border-yellow-500 text-gray-700 shadow-inner hover:bg-yellow-400 hover:border-none align-bottom ">Shop Now</button> */}
