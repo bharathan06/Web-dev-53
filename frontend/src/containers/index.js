@@ -1,0 +1,1 @@
+export { default as Product_sec } from "./product/Product";

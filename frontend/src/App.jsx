@@ -6,6 +6,7 @@ import { About } from "./pages/about/about"
 import { Footer } from "./components/footer/footer";
 import { Cart } from './pages/cart/cart';
 import { Shop } from './pages/shop/shop';
+import { Productpage } from './pages/productPage/productpage';
 import { ShopContextProvider } from './context/shop-context';
 
 function App() {
@@ -13,22 +14,25 @@ function App() {
   return (
 
     <div className="App">
-      
-        <Router>
-          <Navbar />
-          <ShopContextProvider>
+
+      <Router>
+        <Navbar />
+        <ShopContextProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/productpage" element={<Productpage />} >
+              <Route path=':id' element={<Productpage />} />
+            </Route>
 
 
           </Routes>
-          </ShopContextProvider>
-          <Footer />
-        </Router>
-      
+        </ShopContextProvider>
+        <Footer />
+      </Router>
+
     </div>
   );
 }
