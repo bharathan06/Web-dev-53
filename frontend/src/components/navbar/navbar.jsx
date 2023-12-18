@@ -27,6 +27,8 @@ export const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/shop">Shop now!</Link></li>
             <li><Link to="/about">About</Link></li>
+            <li><Link to="/profile">My Profile</Link></li>
+            <li><Link to="/logout">LOGOUT</Link></li>
           </ul>
         </div>
       </div>
@@ -57,7 +59,7 @@ export const Navbar = () => {
             </Link>
           </div>
         </button>
-        <Link to="/login" className="btn btn-ghost btn-circle">Login</Link>
+        <Link to= "/login" className="btn btn-ghost btn-circle">Login</Link>
       </div>
     </div>
 </div>
