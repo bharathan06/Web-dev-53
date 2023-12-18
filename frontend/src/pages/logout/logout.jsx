@@ -16,7 +16,7 @@ export const Logout = () => {
 
   return (
     <div className="flex items-center justify-center mt-16">
-      <div className="card w-96 bg-dark to-yellow-100 text- text-black mb-16">
+      <div className="card w-96 bg- bg- bg-yellow-100 text-black mb-16 border border-solid border-black">
         <div className="card-body items-center text-center">
           <h2 className="card-title">LOGOUT</h2>
           <p>Are you sure you want to LOGOUT?</p>

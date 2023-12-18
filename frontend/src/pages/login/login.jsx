@@ -16,17 +16,34 @@ export const Login = () => {
     history('/');
   };
 
-  const formContainerStyle = {
+  const containerStyle = {
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '90vh',
+    height: '55vh',
+    width: '40%',
+    margin: 'auto', 
+    marginBottom: '30px',
+    border: '2px solid black', 
+    borderRadius: '10px',
+    padding: '50px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    background: 'rgba(255, 255, 255, 0.8)', 
   };
+  
 
   const formStyle = {
     width: '300px',
     textAlign: 'center',
     marginTop: '-20px',
+  };
+
+  const headingStyle = {
+    fontWeight: 'bold',
+    fontSize: '24px',
+    marginBottom: '20px',
+    color: 'black',
   };
 
   const inputStyle = {
@@ -40,25 +57,16 @@ export const Login = () => {
     width: '100%',
     padding: '10px',
     boxSizing: 'border-box',
-    background: '#FFD700', 
+    background: '#FFD700',
     color: 'black',
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
   };
 
-  const linkButtonStyle = {
-    width: '100%',
-    padding: '10px',
-    boxSizing: 'border-box',
-    background: '#FFA500', 
-    borderRadius: '5px',
-    cursor: 'pointer',
-    textDecoration: 'none',
-  };
-
   return (
-    <div style={formContainerStyle}>
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>LOGIN</h2>
       <form onSubmit={handleSubmit} style={formStyle}>
         <div style={{ marginBottom: '15px' }}>
           <label htmlFor="username" style={{ fontWeight: 'bold', fontSize: '18px' }}>
@@ -101,7 +109,7 @@ export const Login = () => {
         <p>
           Don't have an account?{' '}
           <Link to="/signup" style={{ textDecoration: 'none' }}>
-          <button className="btn btn-outline btn-warning">Sign Up!</button>
+            <button className="btn btn-outline btn-warning">Sign Up!</button>
           </Link>
         </p>
       </form>
