@@ -8,8 +8,7 @@ const CartItem = (props) => {
     const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
     return (
 
-        <div className="cartItem">
-            <Link to={'/productpage/${props.id}'}><img src={productImage} /></Link>
+        <div className="cartItem"><img src={productImage} />
             <div className="description">
                 <p><b>{productName}</b></p>
                 <p>₹{price}</p>
