@@ -4,8 +4,9 @@ export const ProductBox = ({ product }) => {
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
-        <img src={product.image} alt={product.name} />
-      </figure> 
+        {/* Update the image source */}
+        <img src={`http://localhost:8000/${product.image}`} alt={product.name} />
+      </figure>
       <div className="card-body">
         <h2 className="card-title">{product.name}</h2>
         <p>{product.description}</p>
@@ -17,5 +18,3 @@ export const ProductBox = ({ product }) => {
     </div>
   );
 };
-
-
