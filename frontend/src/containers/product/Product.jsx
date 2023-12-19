@@ -3,10 +3,10 @@ import { useContext } from 'react'
 import { ShopContext } from '../../context/shop-context';
 import './product.css'
 import { useParams } from 'react-router-dom';
+import { PRODUCTS } from '../../products'
 
 const Product = (props) => {
     const { product } = props;
-    const { id } = useParams;
     return (
         <><div class="container1 shadow-xl">
             <section class="text-gray-600 body-font overflow-hidden">
