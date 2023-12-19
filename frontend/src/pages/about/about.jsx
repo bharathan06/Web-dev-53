@@ -1,9 +1,10 @@
 import React from 'react';
-import backgroundImage from '../../assets/cooking.png';
+import backgroundImage from '../../assets/ttt.webp';
 
 export const About = () => {
   const pageStyle = {
     color: 'black',
+    fontSize: '1.2rem',
     minHeight: '100vh',
     padding: '50px 20px', 
     textAlign: 'center',
@@ -13,26 +14,31 @@ export const About = () => {
     fontSize: '3rem',
     fontWeight: 'bold',
     marginBottom: '20px',
-    color: 'black',
+    color: 'white',
     fontStyle: 'Times New Roman',
   };
 
   const cardContainerStyle = {
     display: 'flex',
-    flexDirection: 'column', 
-    alignItems: 'center',
-    color: 'yellow',
+    flexWrap: 'wrap',  
+    justifyContent: 'space-between', 
   };
 
   const cardStyle = {
-    width: '100%', 
-    maxWidth: '600px', 
+    width: 'calc(33.33% - 20px)', 
     padding: '20px',
     borderRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-    background: 'rgba(255, 255, 255, 0.9)',
+    background: 'linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.9)',
     marginBottom: '20px',
     color: 'black',
+  };
+
+  const backgroundImageStyle = {
+    background: ` url(${backgroundImage}) center/cover`,
+    backgroundImage: ` url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   };
 
   const faqContainerStyle = {
@@ -45,18 +51,12 @@ export const About = () => {
     marginBottom: '20px',
     width: '100%', 
   };
-
-  const backgroundImageStyle = {
-    background: `linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(${backgroundImage}) center/cover`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
+  
 
   return (
     <div>
-      
       <div style={{ ...pageStyle, ...backgroundImageStyle }}>
-        <h1 style={headingStyle}>About</h1>
+        <h1 style={headingStyle}>ABOUT ORVA</h1>
 
         <div style={cardContainerStyle}>
           <div style={cardStyle}>
@@ -82,11 +82,11 @@ export const About = () => {
         </div>
       </div>
 
-      {/* Section below Background Image */}
       <div style={faqContainerStyle}>
         <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '20px', color: 'black' }}>
           Frequently Asked Questions
         </h2>
+        
         <div style={faqStyle} className="collapse collapse-arrow bg-base-200">
           <input type="radio" name="faq-accordion" checked="checked" />
           <div className="collapse-title text-xl font-medium">

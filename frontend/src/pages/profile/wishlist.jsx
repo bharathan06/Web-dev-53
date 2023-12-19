@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ShopContext } from '../../context/shop-context';
-import backgroundImage from '../../assets/ue.webp'; 
+import backgroundImage from '../../assets/uuu.jpeg'; 
 
 export const Wishlist = () => {
   const { addToCart } = useContext(ShopContext);
@@ -20,7 +20,7 @@ export const Wishlist = () => {
     minHeight: '100vh',
     padding: '50px 0',
     textAlign: 'center',
-    backgroundImage: ` url(${backgroundImage})`, 
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.9)), url(${backgroundImage}`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   };

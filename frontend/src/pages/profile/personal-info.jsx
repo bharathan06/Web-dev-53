@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from '../../assets/ue.webp';
+import backgroundImage from '../../assets/mmm.jpeg';
+import { FaUser, FaBirthdayCake, FaVenusMars, FaEnvelope, FaPhone } from 'react-icons/fa';
 
 export const PersonalInfo = () => {
   const [formData, setFormData] = useState({
@@ -36,12 +37,10 @@ export const PersonalInfo = () => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   };
-  
-  
 
   const formContainerStyle = {
     maxWidth: '400px',
-    margin: 'auto', 
+    margin: 'auto',
     padding: '20px',
     borderRadius: '8px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
@@ -54,11 +53,18 @@ export const PersonalInfo = () => {
     fontSize: '2rem',
     fontWeight: 'bold',
     marginBottom: '20px',
-    textAlign: 'center',
+    textAlign: 'center', 
+  };
+
+  const iconStyle = {
+    marginRight: '10px',
+    fontSize: '1rem',
+    verticalAlign: 'middle',
   };
 
   const labelStyle = {
-    display: 'block',
+    display: 'flex',          
+    alignItems: 'center',    
     margin: '10px 0',
     color: '#555',
     fontSize: '1rem',
@@ -76,7 +82,7 @@ export const PersonalInfo = () => {
   const buttonStyle = {
     width: '100%',
     padding: '10px',
-    background: 'beige',
+    background: '#FCF75E', 
     color: 'black',
     border: 'none',
     borderRadius: '4px',
@@ -89,7 +95,9 @@ export const PersonalInfo = () => {
       <div style={formContainerStyle}>
         <h1 style={headingStyle}>Personal Information</h1>
         <form onSubmit={handleSubmit}>
-          <label style={labelStyle}>Username</label>
+          <label style={labelStyle}>
+            <FaUser style={iconStyle} /> Username
+          </label>
           <input
             type="text"
             name="username"
@@ -99,7 +107,9 @@ export const PersonalInfo = () => {
             style={inputStyle}
           />
 
-          <label style={labelStyle}>Age</label>
+          <label style={labelStyle}>
+            <FaBirthdayCake style={iconStyle} /> Age
+          </label>
           <input
             type="text"
             name="age"
@@ -109,7 +119,9 @@ export const PersonalInfo = () => {
             style={inputStyle}
           />
 
-          <label style={labelStyle}>Gender</label>
+          <label style={labelStyle}>
+            <FaVenusMars style={iconStyle} /> Gender
+          </label>
           <input
             type="text"
             name="gender"
@@ -119,7 +131,9 @@ export const PersonalInfo = () => {
             style={inputStyle}
           />
 
-          <label style={labelStyle}>Email</label>
+          <label style={labelStyle}>
+            <FaEnvelope style={iconStyle} /> Email
+          </label>
           <input
             type="email"
             name="email"
@@ -129,7 +143,9 @@ export const PersonalInfo = () => {
             style={inputStyle}
           />
 
-          <label style={labelStyle}>Phone Number</label>
+          <label style={labelStyle}>
+            <FaPhone style={iconStyle} /> Phone Number
+          </label>
           <input
             type="tel"
             name="phoneNumber"
