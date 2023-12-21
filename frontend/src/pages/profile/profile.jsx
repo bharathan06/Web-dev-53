@@ -4,6 +4,8 @@ import { BsPerson } from 'react-icons/bs';
 import { FaAddressCard, FaOilCan } from 'react-icons/fa';
 import { MdOutlineFavorite } from 'react-icons/md';
 
+import backgroundImage from '../../assets/oink.webp'; 
+
 export const Profile = () => {
   const cardsData = [
     {
@@ -80,7 +82,11 @@ export const Profile = () => {
     minHeight: '100vh',
     padding: '50px 0',
     textAlign: 'center',
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   };
+  
 
   const headingStyle = {
     fontSize: '3rem',
