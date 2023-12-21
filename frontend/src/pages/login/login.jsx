@@ -1,110 +1,53 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'bulma-toast';
 import { FaUser, FaLock } from 'react-icons/fa';
-import backgroundImage from '../../assets/yu.jpg';
-import profileImage from '../../assets/hehe.jpeg'; 
+import backgroundImage from '../../assets/login_bg.png';
 
-export const Login = () => {
-  const data = { username: '', password: '' };
-  const [user, setUser] = useState(data);
-  const history = useNavigate();
+const Login = () => {
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history('/');
-  };
-  const wrapperStyle = {
-    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.9)), url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
+  const [rememberMe, setRememberMe] = useState(false);
+  const [errors, setErrors] = useState([]);
+
+  const pageStyle = {
     minHeight: '100vh',
+    background: `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4)), url('${backgroundImage}')`,
+    backgroundSize: 'cover',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  };
-  const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '58vh',
-    width: '35%',
-    margin: 'auto',
-    marginTop: '80px',
-    marginBottom: '30px',
-    padding: '50px',
-    position: 'center', 
-    border: '2px solid black',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    background: 'rgba(255, 255, 255, 0.8)',
+    backdropFilter: 'blur(20px)', 
+    backgroundRepeat: 'no-repeat',
   };
   
-    
 
-  const profileImageStyle = {
-    width: '80px',
-    height: '80px',
-    borderRadius: '50%',
-    marginBottom: '20px',
-    position: 'absolute',  
-    top: '140px',           
-    left: '50%',
-    transform: 'translateX(-50%)', 
-  };
+  const formContainerStyle = 'container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2 bg-white bg-opacity-70 px-6 py-8 rounded shadow-md text-black w-full';
 
-  const formStyle = {
-    width: '300px',
-    textAlign: 'center',
-    marginTop: '-20px',
-  };
+  const headingStyle = 'mb-8 text-3xl text-center';
 
-  const headingStyle = {
-    fontWeight: 'bold',
-    fontSize: '24px',
-    marginBottom: '20px',
-    color: 'Black',
-  };
+  const labelStyle = 'flex items-center m-2 text-grey-darker';
 
-  const labelStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '10px',
-    fontWeight: 'bold',
-    fontSize: '18px',
-    textAlign: 'left',
-    color: 'black',
-  };
+  const iconStyle = 'mr-2';
 
-  const inputOvalStyle = {
-    width: '100%',
-    padding: '10px',
-    borderRadius: '20px',
-    marginBottom: '10px',
-    border: '1px solid #ccc',
-    boxSizing: 'border-box',
-    paddingLeft: '40px'
-  };
+  const inputStyle = 'block border border-grey-light w-80 p-3 rounded mb-4';
 
-  const labelIconStyle = {
-    marginRight: '10px',
-    verticalAlign: 'middle',
-  };
+  const buttonStyle = 'w-full text-center py-3 rounded bg-yellow-400 hover:bg-yellow-600 focus:outline-none my-1';
 
   const rememberMeStyle = {
     display: 'flex',
     alignItems: 'center',
     marginBottom: '10px',
-    color: 'black',  
+    color: 'black',
   };
 
-  const signUpLinkStyle = {
+  const linkStyle = {
     textDecoration: 'none',
     color: '#FFD700',
     fontWeight: 'bold',
@@ -112,62 +55,106 @@ export const Login = () => {
     marginLeft: '5px',
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors([]);
+
+    try {
+      // Simulating a login request with Axios
+      const response = await axios.post('/api/v1/login', {
+        username: user.username,
+        password: user.password,
+      });
+
+      // Display success message with Bulma toast
+      toast({
+        message: 'Login successful!',
+        type: 'is-success',
+        dismissible: true,
+        pauseOnHover: true,
+        duration: 2000,
+        position: 'bottom-right',
+      });
+
+      // Navigate to the home page after successful login
+      navigate('/');
+    } catch (error) {
+      // Handle login errors
+      if (error.response) {
+        setErrors(['Invalid username or password']);
+      } else {
+        setErrors(['Something went wrong. Please try again']);
+      }
+    }
+  };
+
   return (
-    <div style={wrapperStyle}>
-      <div style={containerStyle}>
-        <img src={profileImage} alt="Profile" style={profileImageStyle} />
-        <h2 style={headingStyle}>LOGIN</h2>
-        <form onSubmit={handleSubmit} style={formStyle}>
-          <div style={{ marginBottom: '15px' }}>
-            <label htmlFor="username" style={labelStyle}>
-              <FaUser style={labelIconStyle} /> Username
-            </label>
+    <div style={pageStyle}>
+      <div className={formContainerStyle}>
+        <h1 className={headingStyle}>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <label className={labelStyle}>
+            <FaUser className={iconStyle} />
+            Username
+          </label>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            className={inputStyle}
+            required
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
+          />
+
+          <label className={labelStyle}>
+            <FaLock className={iconStyle} />
+            Password
+          </label>
+          <input
+            type="password"
+            placeholder="Enter your password"
+            className={inputStyle}
+            required
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+          />
+
+          <div style={rememberMeStyle}>
             <input
-              type="text"
-              id="username"
-              name="username"
-              value={user.username}
-              onChange={handleChange}
-              placeholder="Enter your username"
-              className="input input-bordered input-success w-full max-w-xs"
-              style={inputOvalStyle}
+              type="checkbox"
+              id="rememberMe"
+              name="rememberMe"
+              checked={rememberMe}
+              onChange={() => setRememberMe(!rememberMe)}
+              style={{ marginRight: '10px' }}
             />
+            <label htmlFor="rememberMe">Remember Me</label>
           </div>
-          <div style={{ marginBottom: '15px' }}>
-            <label htmlFor="password" style={labelStyle}>
-              <FaLock style={labelIconStyle} /> Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={user.password}
-              onChange={handleChange}
-              placeholder="Enter your password"
-              className="input input-bordered input-success w-full max-w-xs"
-              style={inputOvalStyle}
-            />
+
+          <div className="notification is-danger" style={{ marginBottom: '20px' }}>
+            {errors.map((error, index) => (
+              <p key={index}>{error}</p>
+            ))}
           </div>
-          <button type="submit" style={{ width: '100%', padding: '10px', boxSizing: 'border-box', background: '#FFD700', color: 'black', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+
+          <button type="submit" className={buttonStyle}>
             Login
           </button>
-          <div style={rememberMeStyle}>
-  <input type="checkbox" id="rememberMe" name="rememberMe" style={{ marginRight: '10px' }} />
-  <label htmlFor="rememberMe">Remember Me</label>
-</div>
-          <p style={{ marginBottom: '10px', marginTop: '10px' }}>
-            <Link to="/forgot-password" style={{ textDecoration: 'none' }}>
+
+          <div style={{ marginTop: '10px' }}>
+            <Link to="/forgot-password" style={linkStyle}>
               Forgot Password?
             </Link>
-          </p>
-          <p>
+          </div>
+
+          <p style={{ marginTop: '10px' }}>
             Don't have an account?{' '}
-            <Link to="/signup" style={signUpLinkStyle}>
+            <Link to="/signup" style={linkStyle}>
               Sign Up!
             </Link>
           </p>
         </form>
       </div>
-      </div>
+    </div>
   );
 };
+
+export { Login };
