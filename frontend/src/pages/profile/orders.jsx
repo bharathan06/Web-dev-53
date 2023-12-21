@@ -64,7 +64,7 @@ export const Orders = () => {
 
   return (
     <div style={pageStyle}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', alignItems: 'center', marginBottom: '40px', background: '#FCF75E', display: 'inline-block', padding: '10px 20px', borderRadius: '5px', width: '200px' }}>
+      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', alignItems: 'center', marginBottom: '40px', background: '#FCE22A', display: 'inline-block', padding: '10px 20px', borderRadius: '5px', width: '200px' }}>
         <FaShoppingBag style={{ marginRight: '10px' }} /> My Orders
       </h1>
       {orders.map((order) => (

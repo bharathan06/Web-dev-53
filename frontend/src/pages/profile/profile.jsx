@@ -99,6 +99,7 @@ export const Profile = () => {
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: '20px',
+    color: '#FCE22A',
   };
 
   const rowStyle = {
