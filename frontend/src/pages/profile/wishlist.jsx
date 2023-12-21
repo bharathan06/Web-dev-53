@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ShopContext } from '../../context/shop-context';
+import backgroundImage from '../../assets/uuu.jpeg'; 
 
 export const Wishlist = () => {
   const { addToCart } = useContext(ShopContext);
@@ -14,14 +15,24 @@ export const Wishlist = () => {
     addToCart(productId);
   };
 
+  const pageStyle = {
+    color: '#000',
+    minHeight: '100vh',
+    padding: '50px 0',
+    textAlign: 'center',
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.9)), url(${backgroundImage}`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+
   return (
-    <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+    <div style={pageStyle}>
       <h1
         style={{
           fontSize: '2rem',
           fontWeight: 'bold',
           marginBottom: '1rem',
-          background: '#FCF75E',
+          background: 'rgba(255, 255, 224, 0.9)', 
           display: 'inline-block',
           padding: '0.5rem 1rem',
           borderRadius: '5px',
