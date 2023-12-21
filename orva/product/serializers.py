@@ -12,6 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "get_absolute_url",
             "description",
             "price",
+            "image",
             "get_image",
             "get_thumbnail", 
         )

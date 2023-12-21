@@ -43,42 +43,31 @@ class Product(models.Model):
         if self.image:
             return 'http://127.0.0.1:8000' + self.image.url
         return ''
-    
-    def get_thumbnail(self):
-        if self.thumbnail:
-            return 'http://127.0.0.1:8000' + self.thumbnail.url
-        else:
-            if self.image:
-                self.image = self.make_thumbnail(self.image)
-                self.save()
-
-                return 'http://127.0.0.1:8000' + self.thumbnail.url
-            else: 
-                return ''
 
     def get_thumbnail(self):
         if self.thumbnail:
             return 'http://127.0.0.1:8000' + self.thumbnail.url
         elif self.image:
-        
-            self.image = self.make_thumbnail(self.image)
+            self.thumbnail = self.make_thumbnail(self.image)
             self.save()
             return 'http://127.0.0.1:8000' + self.thumbnail.url if self.thumbnail else ''
         else:
             return ''
-        
+
     def make_thumbnail(self, image, size=(300, 200)):
         img = Image.open(image)
         img.convert('RGB')
         img.thumbnail(size)
-
+    
         thumb_io = BytesIO()
         img.save(thumb_io, 'JPEG', quality=85)
-
-        thumbnail = File(thumb_io, name=image.name)
-
-        self.thumbnail.save(image.name, thumbnail)
+    
+        thumbnail_name = f"thumb_{image.name.split('/')[-1]}"
+        thumbnail = File(thumb_io, name=thumbnail_name)
+    
+        self.thumbnail.save(thumbnail_name, thumbnail)
         return self.thumbnail
+
     
 
 
