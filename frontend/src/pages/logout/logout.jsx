@@ -34,13 +34,13 @@ export const Logout = () => {
           <p>Are you sure you want to LOGOUT?</p>
           <div className="card-actions justify-end flex items-center">
             <button
-              className="btn bg-yellow-400 text-black mr-4 flex items-center"
+              className="btn bg-amber-300 text-black mr-4 flex items-center"
               onClick={() => handleLogout(true)}
             >
               <FaSignOutAlt className="mr-2" /> Accept
             </button>
             <button
-              className="btn bg-yellow-500 text-black flex items-center"
+              className="btn bg-red-400 text-black flex items-center"
               onClick={() => handleLogout(false)}
             >
               <FaSignOutAlt className="mr-2" /> Deny

@@ -6,9 +6,8 @@ export const Wishlist = () => {
   const { addToCart } = useContext(ShopContext);
 
   const wishlistItems = [
-    { id: 1, name: 'Coconut Oil', price: 'Rs 199.00' },
-    { id: 2, name: 'Groundnut Oil', price: 'Rs 249.00' },
-    { id: 3, name: 'Sunflower Oil', price: 'Rs 199.00' },
+    { id: 1, name: 'Coconut Oil',   price: 'Rs 199.00' },
+    { id: 2, name: 'Sunflower Oil', price: 'Rs 199.00' },
   ];
 
   const handleAddToCart = (productId) => {
@@ -52,7 +51,7 @@ export const Wishlist = () => {
                   </div>
                   <button
                     className="btn"
-                    style={{ background: '#FFFFE0', color: 'black', marginLeft: '400px' }}
+                    style={{ background: '#FCE22A', color: 'black', marginLeft: '400px' }}
                     onClick={() => handleAddToCart(item.id)}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
