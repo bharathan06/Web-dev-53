@@ -1,16 +1,20 @@
 import React from 'react'
-import { default as Productcontext } from '../../containers/product/productcontext';
-import { default as ProductDisp } from '../../containers/product/Product'
+import { useContext } from 'react'
+import { ShopContext } from '../../context/shop-context';
+import { useParams } from 'react-router-dom';
+import { Product_sec as ProductDisp } from '../../containers'
+import { PRODUCTS as Products } from '../../products'
 import './productpage.css'
 
-const Productpage = () => {
-    return (
-        <>
+const Productpage = (product) => {
+    {
+        return (
             <div>
-                <Productcontext />
+                <ProductDisp product={product} />
             </div>
-        </>
-    )
+        )
+
+    }
 }
 
-export { Productpage };
+export default Productpage

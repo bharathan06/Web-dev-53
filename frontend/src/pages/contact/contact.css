@@ -1,0 +1,116 @@
+.contactsection{
+    text-align: center;
+    font-size: 350%;
+    font-weight: 700;
+    font-family: Arial;
+    padding-bottom: 25px;
+}
+.contain1{
+    padding-top: 10px;
+}
+.contain2{
+    background-image: url(../../assets/content_banner.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.contain3{
+    display: flex;
+    justify-content: space-around;
+}
+.icons1{
+    font-size: 300%;
+}
+.icons2{
+    font-size: 250%;
+}
+.subt{
+    font-size: 200%;
+    color: white;
+}
+.card1{
+    background: transparent;
+    color: white;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+}
+.inp{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    margin: 10px 0;
+    color: white;
+}
+.inp label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+}
+.inp label:focus,
+.inp label:valid{
+    top: 5px;
+}
+.inp input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-right: 15px;
+    margin-left: 5px;
+    margin-top: 4px;
+}
+.inp input:focus~label,
+.inp input:valid~label{
+    top: 5px;
+    transition: .5s;
+}
+.contain4{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.form-control{
+    background-color: transparent;
+    border: none;
+}
+.label-text{
+    color: white;
+}
+.input{
+    background-color: #131313f0;
+    color: white;
+}
+.textarea{
+    background-color: #131313f0;
+    color: white;
+}
+.contain5{
+    width: 40%;
+}
+.contain6{
+    width: 40%;
+}
+.request{
+    padding-left: 3rem;
+    padding-top: 3rem;
+}
+.contain7{
+    background-color: #131313f0;
+    border: 2px;
+    border-radius: 12px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+}
+.divider{
+    color: white;
+}

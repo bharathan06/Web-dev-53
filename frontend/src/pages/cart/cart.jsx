@@ -16,6 +16,10 @@ const Cart = () => {
             return <CartItem data={product} />
           }
         })}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button className="btn btn-outline btn-warning">Buy Now</button>
+</div>
+
       </div>
     </div>
   )

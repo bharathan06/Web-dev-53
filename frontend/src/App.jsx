@@ -6,8 +6,18 @@ import { About } from "./pages/about/about"
 import { Footer } from "./components/footer/footer";
 import { Cart } from './pages/cart/cart';
 import { Shop } from './pages/shop/shop';
-import { Productpage } from './pages/productPage/productpage';
 import { ShopContextProvider } from './context/shop-context';
+import { Logout } from './pages/logout/logout';
+import { Profile } from './pages/profile/profile';
+import { PersonalInfo } from './pages/profile/personal-info';
+import { Wishlist } from './pages/profile/wishlist';
+import { Addresses } from './pages/profile/addresses';
+import { Orders } from './pages/profile/orders';
+import { Login } from './pages/login/login';
+import { Signup } from './pages/signup/signup';
+import { default as Productpage } from './pages/productPage/productpage';
+import { default as Contact } from './pages/contact/contact'
+
 
 function App() {
 
@@ -22,10 +32,22 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/cart" element={<Cart />} />
             <Route path="/productpage" element={<Productpage />} >
-              <Route path=':id' element={<Productpage />} />
+              <Route path='${:id}' element={<Productpage />} />
             </Route>
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/personal-info" element={<PersonalInfo />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/addresses" element={<Addresses />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/contact" element={<Contact />} />
+
+
+
 
 
           </Routes>

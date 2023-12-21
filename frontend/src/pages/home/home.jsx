@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Prodcard } from '../../components/prodcard/prodcard';
+import { ProductBox } from '../../components/prodbox/prodbox';
 import orvaImage from '../../assets/orva.png';
 
 export const Home = () => {
@@ -16,7 +16,7 @@ export const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     getLatestProducts();
   }, []);
 
@@ -40,16 +40,21 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* Latest products section */}
-      <h1 class="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black align-middle">Latest Products</h1>
-      <br/>
-      <br/>
-      <br/>
-      {latestProducts.map((product) => (
-        <div key={product.id}>
-          <Prodcard latestProducts={latestProducts} />
+      {/* Latest products carousel section */}
+      <h1 className="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black align-middle">Latest Products</h1>
+      <div className="latest-products-section overflow-y-auto max-h-96"> {/* Set a fixed height and make it scrollable */}
+        
+        <br />
+        <br />
+        <br />
+        <div className="carousel rounded-box">
+          {latestProducts.map((product) => (
+            <div key={product.id} className="carousel-item">
+              <ProductBox product={product} />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
