@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView
 from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
@@ -22,3 +23,6 @@ class ProductsByCategory(ListAPIView):
         category_slug = self.kwargs['category_slug']
         category = render(category, slug=category_slug)
         return Product.objects.filter(category=category)
+    
+class YourLoginView(LoginView):
+    template_name = 'your_login_template.html'

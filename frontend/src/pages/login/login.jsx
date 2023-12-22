@@ -25,10 +25,9 @@ const Login = () => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backdropFilter: 'blur(20px)', 
+    backdropFilter: 'blur(20px)',
     backgroundRepeat: 'no-repeat',
   };
-  
 
   const formContainerStyle = 'container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2 bg-white bg-opacity-70 px-6 py-8 rounded shadow-md text-black w-full';
 
@@ -64,8 +63,8 @@ const Login = () => {
     try {
       // Simulating a login request with Axios
       const response = await axios.post('/api/v1/login', {
-        username: user.username,
-        password: user.password,
+        username: credentials.username,
+        password: credentials.password,
       });
 
       // Display success message with Bulma toast
@@ -104,7 +103,8 @@ const Login = () => {
             placeholder="Enter your username"
             className={inputStyle}
             required
-            onChange={(e) => setUser({ ...user, username: e.target.value })}
+            value={credentials.username}
+            onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
           />
 
           <label className={labelStyle}>
@@ -116,7 +116,8 @@ const Login = () => {
             placeholder="Enter your password"
             className={inputStyle}
             required
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            value={credentials.password}
+            onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
           />
 
           <div style={rememberMeStyle}>
@@ -137,7 +138,7 @@ const Login = () => {
             ))}
           </div>
 
-          <button type="submit" className={buttonStyle} onClick={handleSubmit}>
+          <button type="submit" className={buttonStyle}>
             Login
           </button>
 
