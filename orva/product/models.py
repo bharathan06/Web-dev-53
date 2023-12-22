@@ -29,7 +29,7 @@ class Product(models.Model):
     thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
-
+ 
     class Meta:
         ordering = ('-date_added',)
 

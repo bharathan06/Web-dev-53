@@ -16,7 +16,7 @@ export const Home = () => {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     getLatestProducts();
   }, []);
 
@@ -41,10 +41,10 @@ export const Home = () => {
       </div>
 
       {/* Latest products section */}
-      <h1 class="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black align-middle">Latest Products</h1>
-      <br/>
-      <br/>
-      <br/>
+      <h1 className="mb-4 text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black align-middle">Latest Products</h1>
+      <br />
+      <br />
+      <br />
       {latestProducts.map((product) => (
         <div key={product.id}>
           <Prodcard latestProducts={latestProducts} />

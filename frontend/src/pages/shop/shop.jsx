@@ -4,6 +4,9 @@ import './shop.css';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -13,11 +16,22 @@ const Shop = () => {
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
+        setError('Error fetching products. Please try again later.');
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProducts();
   }, []);
+
+  if (loading) {
+    return <p>Loading...</p>; // You can replace this with a loading spinner or component
+  }
+
+  if (error) {
+    return <p>{error}</p>; // Display an error message to the user
+  }
 
   return (
     <div className="products">
