@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from "./components/navbar/navbar"
 import { Home } from "./pages/home/home"
 import { About } from "./pages/about/about"
-import { Shop } from './pages/shop/shop';
+import { Footer } from "./components/footer/footer";
 import { Cart } from './pages/cart/cart';
+import { Shop } from './pages/shop/shop';
 import { ShopContextProvider } from './context/shop-context';
 
 function App() {
@@ -12,9 +13,10 @@ function App() {
   return (
 
     <div className="App">
-      <ShopContextProvider>
-        <Router>
-          <Navbar />
+
+      <Router>
+        <Navbar />
+        <ShopContextProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -23,8 +25,10 @@ function App() {
 
 
           </Routes>
-        </Router>
-      </ShopContextProvider>
+        </ShopContextProvider>
+        <Footer />
+      </Router>
+
     </div>
   );
 }
