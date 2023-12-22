@@ -53,7 +53,7 @@ export const Navbar = () => {
         </button>
         <button className="btn btn-ghost btn-circle">
           <div className="indicator">
-            <span className="badge badge-xs badge-primary indicator-item"></span>
+            <span style={{ backgroundColor: '#FCE22A', borderColor:'#FBECB2'}} className="badge badge-xs badge-primary  indicator-item"></span>
             <Link to="/cart">
               <ShoppingCart size={25} />
             </Link>

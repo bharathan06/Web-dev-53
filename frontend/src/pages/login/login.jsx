@@ -4,11 +4,13 @@ import axios from 'axios';
 import { toast } from 'bulma-toast';
 import { FaUser, FaLock } from 'react-icons/fa';
 import backgroundImage from '../../assets/login_bg.png';
+import { useAuth } from '../../authcontext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const [user, setUser] = useState({
+  const [credentials, setCredentials] = useState({
     username: '',
     password: '',
   });
@@ -135,7 +137,7 @@ const Login = () => {
             ))}
           </div>
 
-          <button type="submit" className={buttonStyle}>
+          <button type="submit" className={buttonStyle} onClick={handleSubmit}>
             Login
           </button>
 

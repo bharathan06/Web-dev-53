@@ -15,12 +15,13 @@ import { Addresses } from './pages/profile/addresses';
 import { Orders } from './pages/profile/orders';
 import { Login } from './pages/login/login';
 import { Signup } from './pages/signup/signup';
+import { AuthProvider } from './authcontext';
 
 
 function App() {
 
   return (
-
+  <AuthProvider>
     <div className="App">
       
         <Router>
@@ -50,6 +51,7 @@ function App() {
         </Router>
       
     </div>
+    </AuthProvider>
   );
 }
 

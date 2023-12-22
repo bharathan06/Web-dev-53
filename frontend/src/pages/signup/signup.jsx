@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'bulma-toast';
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 import backgroundImage from '../../assets/login_bg.png';
+import { Login } from '../login/login'
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ const Signup = () => {
           position: 'bottom-right',
         });
 
-        navigate('/log-in');
+        navigate('/login');
       } catch (error) {
         if (error.response) {
           for (const property in error.response.data) {
